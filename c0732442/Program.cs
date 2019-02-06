@@ -10,7 +10,9 @@ namespace c0732442
     {
         static void Main(string[] args)
         {
-
+            LinkedList a = new LinkedList();
+            a.run();
+            a.walkOverTheList();
 
         }
         
@@ -29,6 +31,7 @@ namespace c0732442
      }
     class LinkedList
     {
+        public Dog current;
         public Dog Head;
         public Dog Peanut = new Dog();
         public Dog Fifi = new Dog();
@@ -41,12 +44,26 @@ namespace c0732442
             Head = Peanut;
             Peanut.DogName = "Peanut";
             Peanut.DogBreed = "Bichon";
+            Peanut.nextDog = Fifi;
             Fifi.DogName = "Fifi";
             Fifi.DogBreed = "Poodle";
+            Peanut.nextDog = Jordan;
             Jordan.DogName = "Jodan";
             Jordan.DogBreed = "German shepard";
+            Peanut.nextDog = Fido;
             Fido.DogName = "Fido";
             Fido.DogBreed = "beegle";
+            Peanut.nextDog = null;
         }
+        public void walkOverTheList()
+        {
+            current = Head;
+            while (current != null)
+            {
+                Console.WriteLine(current.DogName);
+                current = current.nextDog;
+            }
+        }
+
     }
 }
